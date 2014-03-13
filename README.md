@@ -1,13 +1,15 @@
 # MATLAB Spring 2014 – Research Plan (Template)
 (text between brackets to be removed)
 
-> * Group Name: (be creative!)
+> * Group Name: guys on the hill
 > * Group participants names: Josef Neff and Gediminas Simutis
-> * Project Title: (can be changed)
+> * Project Title: Conventions
 
 ## General Introduction
 
-(States your motivation clearly: why is it important / interesting to solve this problem?)
+Convention 
+
+tes your motivation clearly: why is it important / interesting to solve this problem?)
 (Add real-world examples, if any)
 (Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
 
