@@ -1,3 +1,5 @@
 # Code Folder 
 
-Your code goes here. You could also replace the content of this file with something more meaningful
+The following scripts are deposited here:
+
+simple.m - The simple model described in the beginning of the paper by Young
