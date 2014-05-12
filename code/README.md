@@ -13,6 +13,9 @@ twoD_nn.m - Two dimensional 'world' on a square lattice with nearest neighbour i
 twoD_nn_network.m - two dimensional 'world' where we can adjust the connectivity using "nearestNlinks" function. In particular, we look in two well-conected regions which are also connected between them with different number of links.
 
 Functions used:
+
 nearestN - function describing the connectivity for two_nn.m script
+
 nearestNlinks.m - connectivity description for the twoD_nn_network.m
+
 countmember.m - downloaded from Matlab file-exchange, as described in the header
