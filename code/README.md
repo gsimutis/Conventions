@@ -1,11 +1,18 @@
 # Code Folder 
 
-The following scripts are deposited here:
+The following basic scripts are deposited in this folder. Only the versions where we look into initial and final states are put here for clarity. For studying the parameter dependence, we have expanded these scripts and they ae located in /code/analysis folder:
 
 simple.m - The simple model described in the beginning of the paper by Young.
 
-simple_string.m - Same model, but strings are used instead of binary definitions.
+oneD_nn.m - One dimensional 'world' with nearest neighbours interaction
 
-chain_nn_interactions.m - A one-dimensional model, where the players only interact with nearest neighbours.
+twoD_random.m - Two dimensional 'world' with random interaction.
 
-twoD_random.m - A simplest two-dimensional model, where players pick other players at random.
+twoD_nn.m - Two dimensional 'world' on a square lattice with nearest neighbour interactions.
+
+twoD_nn_network.m - two dimensional 'world' where we can adjust the connectivity using "nearestNlinks" function. In particular, we look in two well-conected regions which are also connected between them with different number of links.
+
+Functions used:
+nearestN - function describing the connectivity for two_nn.m script
+nearestNlinks.m - connectivity description for the twoD_nn_network.m
+countmember.m - downloaded from Matlab file-exchange, as described in the header
