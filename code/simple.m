@@ -1,16 +1,17 @@
 % Simple model for conventions as described by H. Peyton Young
 % in Journal of Economic Perspectives 10 2 110 (1996)
 % 2 players with t memory, eps probability of mistake
+% We use strings 'L' and 'R'
 
 t = 10; % number of encounters kept in memory
 samples = 3; % number of encounters probed to make a decision
-eps = 0.05; % probability of mistake
-periods = 100; % number of periods to be played
+eps = 0.1; % probability of mistake
+periods = 10000; % number of periods to be played
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % initial conditions 0 = L, 1 = R
-%P1 = [0 0 0 0 0 0 0 0 0 0];
-%P2 = [0 0 0 0 0 0 0 0 0 0];
+P1 = ['L' 'L' 'L' 'L' 'L' 'L' 'L' 'L' 'L' 'L'];
+P2 = ['L' 'L' 'L' 'L' 'L' 'L' 'L' 'L' 'L' 'L'];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % start the game
@@ -19,17 +20,40 @@ for i = 1: periods
     %choose which encounters to probe
     a = randi(t,samples,1);
     %see which choice is statistically better
-    sum = 0;
+    sumL = 0;
+    sumR = 0;
     for j = 1:samples
-        sum = sum + P1(a(j)) + P2(a(j));
+        % Check the first player
+        if strcmpi(P1(a(j)),'L')
+            sumL = sumL +1;
+        elseif strcmpi(P1(a(j)),'R')
+            sumR = sumR +1;
+        end
+        % Check the second player
+        if strcmpi(P2(a(j)),'L')
+            sumL = sumL +1;
+        elseif strcmpi(P2(a(j)),'R')
+            sumR = sumR +1;
+        end
     end
-    avg = sum/(2*samples);
-    if avg < 0.5
-        BC = 0;
-        WC = 1;
+    % see which choice is preffered
+    if sumL > sumR
+        BC = 'L';
+        WC = 'R';
+    elseif sumR > sumL
+        BC = 'R';
+        WC = 'L';
     else
-        BC = 1;
-        WC = 0;
+        % If the number of the historical decisions is the same for R and
+        % L, the player tosses a coin and chooses at random
+        coin = rand;
+        if coin <0.5
+            BC = 'L';
+            WC = 'R';
+        else
+            BC = 'R';
+            WC = 'L';
+        end
     end
     
     %step 2: see what choices the players make
@@ -55,6 +79,6 @@ for i = 1: periods
     P2(t) = P2C;
 end
 
-% Output the final configuration after a number of periods
+% Display the current status
 P1
 P2
