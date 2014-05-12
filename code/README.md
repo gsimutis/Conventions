@@ -14,7 +14,7 @@ twoD_nn_network.m - two dimensional 'world' where we can adjust the connectivity
 
 Functions used:
 
-nearestN - function describing the connectivity for two_nn.m script
+nearestN.m - function describing the connectivity for two_nn.m script
 
 nearestNlinks.m - connectivity description for the twoD_nn_network.m
 
